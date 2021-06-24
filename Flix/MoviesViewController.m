@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic, strong) NSArray *movies;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @end
 
@@ -26,7 +27,7 @@
     [self setUpTableView];
     [self configureRefreshControl];
     [self setUpNavigationController];
-  //  [SVProgressHUD show];
+    [SVProgressHUD show];
     [self getMoviesNowPlaying];
 }
 
@@ -42,19 +43,20 @@
 }
 -(void)setUpNavigationController{
     self.navigationItem.title = @"Now Playing";
+    self.navigationController.navigationBar.prefersLargeTitles = YES;
 }
 -(void)getMoviesNowPlaying{
     [MovieHelper getMoviesNowPlaying:^(NSArray *movies, bool status) {
-        //[SVProgressHUD dismiss];
+        [self.activityIndicator stopAnimating];
         if (status){
-            NSLog(@"Getting movies success");
             self.movies = movies;
             [self.tableView reloadData];
+            [SVProgressHUD dismiss];
             if (self.refreshControl.isRefreshing){
                 [self.refreshControl endRefreshing];
             }
         }else{
-            NSLog(@"getting movies failure");
+            [SVProgressHUD showErrorWithStatus:@"Failed to get movies"];
         }
     }];
 }
@@ -86,6 +88,10 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 130;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:true];
 }
 
 @end

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		965B9B5DCD30A2BAC6DB6CDE /* Pods_FlixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DF5C29ACCF70AB86F67C9DC /* Pods_FlixTests.framework */; };
 		A31312B5ABF9BC109F76003A /* Pods_Flix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65EC606A6F4A92561C155400 /* Pods_Flix.framework */; };
+		DF2C46B126851BCA00A9D3AC /* PosterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF2C46B026851BCA00A9D3AC /* PosterViewController.m */; };
+		DF2C46B426851C1D00A9D3AC /* PosterCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF2C46B326851C1D00A9D3AC /* PosterCollectionViewCell.m */; };
 		DF5BA14A2684B11E00747910 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5BA1492684B11E00747910 /* DetailViewController.m */; };
 		DF755D5D26838F8400E0E581 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DF755D5C26838F8400E0E581 /* AppDelegate.m */; };
 		DF755D6026838F8400E0E581 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DF755D5F26838F8400E0E581 /* SceneDelegate.m */; };
@@ -49,6 +51,10 @@
 		8A8747DCDC1F0DB28182A16B /* Pods_Flix_FlixUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flix_FlixUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DF5C29ACCF70AB86F67C9DC /* Pods_FlixTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlixTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADB828D5F6C58A371827E2C9 /* Pods-Flix-FlixUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flix-FlixUITests.release.xcconfig"; path = "Target Support Files/Pods-Flix-FlixUITests/Pods-Flix-FlixUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DF2C46AF26851BCA00A9D3AC /* PosterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PosterViewController.h; sourceTree = "<group>"; };
+		DF2C46B026851BCA00A9D3AC /* PosterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PosterViewController.m; sourceTree = "<group>"; };
+		DF2C46B226851C1D00A9D3AC /* PosterCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PosterCollectionViewCell.h; sourceTree = "<group>"; };
+		DF2C46B326851C1D00A9D3AC /* PosterCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PosterCollectionViewCell.m; sourceTree = "<group>"; };
 		DF5BA1482684B11E00747910 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		DF5BA1492684B11E00747910 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		DF755D5826838F8400E0E581 /* Flix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flix.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +176,10 @@
 				DFD7F49C2684989C0084C44D /* Main.storyboard */,
 				DF5BA1482684B11E00747910 /* DetailViewController.h */,
 				DF5BA1492684B11E00747910 /* DetailViewController.m */,
+				DF2C46AF26851BCA00A9D3AC /* PosterViewController.h */,
+				DF2C46B026851BCA00A9D3AC /* PosterViewController.m */,
+				DF2C46B226851C1D00A9D3AC /* PosterCollectionViewCell.h */,
+				DF2C46B326851C1D00A9D3AC /* PosterCollectionViewCell.m */,
 			);
 			path = Flix;
 			sourceTree = "<group>";
@@ -434,8 +444,10 @@
 				DF755D5D26838F8400E0E581 /* AppDelegate.m in Sources */,
 				DF755D6E26838F8500E0E581 /* main.m in Sources */,
 				DF755D922683C03A00E0E581 /* MovieTableViewCell.m in Sources */,
+				DF2C46B126851BCA00A9D3AC /* PosterViewController.m in Sources */,
 				DF755D6026838F8400E0E581 /* SceneDelegate.m in Sources */,
 				DF5BA14A2684B11E00747910 /* DetailViewController.m in Sources */,
+				DF2C46B426851C1D00A9D3AC /* PosterCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
