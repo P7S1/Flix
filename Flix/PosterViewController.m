@@ -23,6 +23,7 @@
     [self setUpCollectionView];
     [self getMoviesNowPlaying];
     [self configureRefreshControl];
+    [SVProgressHUD show];
 }
 
 -(void)getMoviesNowPlaying{
@@ -53,7 +54,7 @@
     UICollectionViewFlowLayout* layout = [[UICollectionViewFlowLayout alloc]init];
     
     double width = self.view.frame.size.width/3.0;
-    layout.itemSize = CGSizeMake(width, width * (4/3));
+    layout.itemSize = CGSizeMake(width, width * 1.5);
     layout.minimumLineSpacing = 0;
     layout.minimumInteritemSpacing = 0;
     self.collectionView.collectionViewLayout = layout;

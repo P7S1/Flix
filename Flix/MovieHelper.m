@@ -29,7 +29,7 @@
                NSLog(@"%@", [error localizedDescription]);
                
                //If the network task fails, it sends false in the completion handler
-               completion([NSArray init], NO);
+               completion([[NSArray alloc]init], NO);
            }
            else {
                NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];

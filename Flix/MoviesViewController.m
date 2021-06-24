@@ -44,6 +44,7 @@
 -(void)setUpNavigationController{
     self.navigationItem.title = @"Now Playing";
     self.navigationController.navigationBar.prefersLargeTitles = YES;
+    self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAutomatic;
 }
 -(void)getMoviesNowPlaying{
     [MovieHelper getMoviesNowPlaying:^(NSArray *movies, bool status) {
