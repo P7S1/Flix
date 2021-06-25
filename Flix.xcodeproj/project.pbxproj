@@ -9,8 +9,12 @@
 /* Begin PBXBuildFile section */
 		965B9B5DCD30A2BAC6DB6CDE /* Pods_FlixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DF5C29ACCF70AB86F67C9DC /* Pods_FlixTests.framework */; };
 		A31312B5ABF9BC109F76003A /* Pods_Flix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65EC606A6F4A92561C155400 /* Pods_Flix.framework */; };
+		DF13ABCE2685FE3900A5E946 /* ZoomTransitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF13ABCD2685FE3900A5E946 /* ZoomTransitionController.m */; };
+		DF13ABD02685FF3A00A5E946 /* ZoomDismissalInteractionController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF13ABCF2685FF3A00A5E946 /* ZoomDismissalInteractionController.m */; };
 		DF2C46B126851BCA00A9D3AC /* PosterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF2C46B026851BCA00A9D3AC /* PosterViewController.m */; };
 		DF2C46B426851C1D00A9D3AC /* PosterCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF2C46B326851C1D00A9D3AC /* PosterCollectionViewCell.m */; };
+		DF2C46BA26853A3400A9D3AC /* LargePosterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF2C46B926853A3400A9D3AC /* LargePosterViewController.m */; };
+		DF2C46BD26853D5900A9D3AC /* ZoomAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = DF2C46BC26853D5900A9D3AC /* ZoomAnimator.m */; };
 		DF5BA14A2684B11E00747910 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5BA1492684B11E00747910 /* DetailViewController.m */; };
 		DF755D5D26838F8400E0E581 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DF755D5C26838F8400E0E581 /* AppDelegate.m */; };
 		DF755D6026838F8400E0E581 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DF755D5F26838F8400E0E581 /* SceneDelegate.m */; };
@@ -51,10 +55,19 @@
 		8A8747DCDC1F0DB28182A16B /* Pods_Flix_FlixUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flix_FlixUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DF5C29ACCF70AB86F67C9DC /* Pods_FlixTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlixTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADB828D5F6C58A371827E2C9 /* Pods-Flix-FlixUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flix-FlixUITests.release.xcconfig"; path = "Target Support Files/Pods-Flix-FlixUITests/Pods-Flix-FlixUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DF13ABCC2685FE2800A5E946 /* ZoomTransitionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZoomTransitionController.h; sourceTree = "<group>"; };
+		DF13ABCD2685FE3900A5E946 /* ZoomTransitionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZoomTransitionController.m; sourceTree = "<group>"; };
+		DF13ABCF2685FF3A00A5E946 /* ZoomDismissalInteractionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZoomDismissalInteractionController.m; sourceTree = "<group>"; };
+		DF13ABD12685FF4800A5E946 /* ZoomDismissalInteractionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZoomDismissalInteractionController.h; sourceTree = "<group>"; };
 		DF2C46AF26851BCA00A9D3AC /* PosterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PosterViewController.h; sourceTree = "<group>"; };
 		DF2C46B026851BCA00A9D3AC /* PosterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PosterViewController.m; sourceTree = "<group>"; };
 		DF2C46B226851C1D00A9D3AC /* PosterCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PosterCollectionViewCell.h; sourceTree = "<group>"; };
 		DF2C46B326851C1D00A9D3AC /* PosterCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PosterCollectionViewCell.m; sourceTree = "<group>"; };
+		DF2C46B826853A3400A9D3AC /* LargePosterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LargePosterViewController.h; sourceTree = "<group>"; };
+		DF2C46B926853A3400A9D3AC /* LargePosterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LargePosterViewController.m; sourceTree = "<group>"; };
+		DF2C46BC26853D5900A9D3AC /* ZoomAnimator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZoomAnimator.m; sourceTree = "<group>"; };
+		DF2C46BE26853D9800A9D3AC /* ZoomAnimatorDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZoomAnimatorDelegate.h; sourceTree = "<group>"; };
+		DF2C46BF26853DC600A9D3AC /* ZoomAnimator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZoomAnimator.h; sourceTree = "<group>"; };
 		DF5BA1482684B11E00747910 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		DF5BA1492684B11E00747910 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		DF755D5826838F8400E0E581 /* Flix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flix.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +147,59 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DF2C46B52685388300A9D3AC /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DF5BA1482684B11E00747910 /* DetailViewController.h */,
+				DF5BA1492684B11E00747910 /* DetailViewController.m */,
+				DF2C46AF26851BCA00A9D3AC /* PosterViewController.h */,
+				DF2C46B026851BCA00A9D3AC /* PosterViewController.m */,
+				DF755D6126838F8400E0E581 /* MoviesViewController.h */,
+				DF755D6226838F8400E0E581 /* MoviesViewController.m */,
+				DF2C46B826853A3400A9D3AC /* LargePosterViewController.h */,
+				DF2C46B926853A3400A9D3AC /* LargePosterViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		DF2C46B62685389B00A9D3AC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DFE1EF832683C90D00D1BF64 /* MovieHelper.m */,
+				DFE1EF882683E71F00D1BF64 /* MovieHelper.h */,
+				DF755D902683C03A00E0E581 /* MovieTableViewCell.h */,
+				DF755D912683C03A00E0E581 /* MovieTableViewCell.m */,
+				DF2C46B226851C1D00A9D3AC /* PosterCollectionViewCell.h */,
+				DF2C46B326851C1D00A9D3AC /* PosterCollectionViewCell.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DF2C46B7268538D800A9D3AC /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				DF755D5B26838F8400E0E581 /* AppDelegate.h */,
+				DF755D5C26838F8400E0E581 /* AppDelegate.m */,
+				DF755D5E26838F8400E0E581 /* SceneDelegate.h */,
+				DF755D5F26838F8400E0E581 /* SceneDelegate.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		DF2C46BB26853D3000A9D3AC /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				DF2C46BF26853DC600A9D3AC /* ZoomAnimator.h */,
+				DF2C46BC26853D5900A9D3AC /* ZoomAnimator.m */,
+				DF2C46BE26853D9800A9D3AC /* ZoomAnimatorDelegate.h */,
+				DF13ABCC2685FE2800A5E946 /* ZoomTransitionController.h */,
+				DF13ABCD2685FE3900A5E946 /* ZoomTransitionController.m */,
+				DF13ABCF2685FF3A00A5E946 /* ZoomDismissalInteractionController.m */,
+				DF13ABD12685FF4800A5E946 /* ZoomDismissalInteractionController.h */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
 		DF755D4F26838F8400E0E581 = {
 			isa = PBXGroup;
 			children = (
@@ -159,27 +225,15 @@
 		DF755D5A26838F8400E0E581 /* Flix */ = {
 			isa = PBXGroup;
 			children = (
-				DF755D5B26838F8400E0E581 /* AppDelegate.h */,
-				DF755D5C26838F8400E0E581 /* AppDelegate.m */,
-				DF755D5E26838F8400E0E581 /* SceneDelegate.h */,
-				DF755D5F26838F8400E0E581 /* SceneDelegate.m */,
-				DF755D6126838F8400E0E581 /* MoviesViewController.h */,
-				DF755D6226838F8400E0E581 /* MoviesViewController.m */,
+				DF2C46BB26853D3000A9D3AC /* Animation */,
+				DF2C46B7268538D800A9D3AC /* Core */,
+				DF2C46B62685389B00A9D3AC /* Model */,
+				DF2C46B52685388300A9D3AC /* ViewControllers */,
 				DF755D6726838F8500E0E581 /* Assets.xcassets */,
 				DF755D6926838F8500E0E581 /* LaunchScreen.storyboard */,
 				DF755D6C26838F8500E0E581 /* Info.plist */,
 				DF755D6D26838F8500E0E581 /* main.m */,
-				DF755D902683C03A00E0E581 /* MovieTableViewCell.h */,
-				DF755D912683C03A00E0E581 /* MovieTableViewCell.m */,
-				DFE1EF832683C90D00D1BF64 /* MovieHelper.m */,
-				DFE1EF882683E71F00D1BF64 /* MovieHelper.h */,
 				DFD7F49C2684989C0084C44D /* Main.storyboard */,
-				DF5BA1482684B11E00747910 /* DetailViewController.h */,
-				DF5BA1492684B11E00747910 /* DetailViewController.m */,
-				DF2C46AF26851BCA00A9D3AC /* PosterViewController.h */,
-				DF2C46B026851BCA00A9D3AC /* PosterViewController.m */,
-				DF2C46B226851C1D00A9D3AC /* PosterCollectionViewCell.h */,
-				DF2C46B326851C1D00A9D3AC /* PosterCollectionViewCell.m */,
 			);
 			path = Flix;
 			sourceTree = "<group>";
@@ -440,12 +494,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFE1EF842683C90D00D1BF64 /* MovieHelper.m in Sources */,
+				DF13ABCE2685FE3900A5E946 /* ZoomTransitionController.m in Sources */,
 				DF755D6326838F8400E0E581 /* MoviesViewController.m in Sources */,
 				DF755D5D26838F8400E0E581 /* AppDelegate.m in Sources */,
 				DF755D6E26838F8500E0E581 /* main.m in Sources */,
 				DF755D922683C03A00E0E581 /* MovieTableViewCell.m in Sources */,
+				DF13ABD02685FF3A00A5E946 /* ZoomDismissalInteractionController.m in Sources */,
 				DF2C46B126851BCA00A9D3AC /* PosterViewController.m in Sources */,
 				DF755D6026838F8400E0E581 /* SceneDelegate.m in Sources */,
+				DF2C46BD26853D5900A9D3AC /* ZoomAnimator.m in Sources */,
+				DF2C46BA26853A3400A9D3AC /* LargePosterViewController.m in Sources */,
 				DF5BA14A2684B11E00747910 /* DetailViewController.m in Sources */,
 				DF2C46B426851C1D00A9D3AC /* PosterCollectionViewCell.m in Sources */,
 			);

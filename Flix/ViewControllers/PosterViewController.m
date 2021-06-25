@@ -10,7 +10,9 @@
 #import "MovieHelper.h"
 #import "PosterCollectionViewCell.h"
 #import "UIImageView+AFNetworking.h"
-@interface PosterViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
+#import "LargePosterViewController.h"
+#import "ZoomAnimatorDelegate.h"
+@interface PosterViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, ZoomAnimatorDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) NSArray *movies;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
@@ -18,12 +20,30 @@
 
 @implementation PosterViewController
 
+NSIndexPath *selectedIndexPath;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setUpNavigationController];
     [self setUpCollectionView];
     [self getMoviesNowPlaying];
     [self configureRefreshControl];
     [SVProgressHUD show];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+        LargePosterViewController *vc = segue.destinationViewController;
+    self.navigationController.delegate = vc.transitionController;
+        vc.transitionController.fromDelegate = self;
+        vc.transitionController.toDelegate = vc;
+        NSURL *url = [MovieHelper getMovieURLFromPath:self.movies[selectedIndexPath.row][@"poster_path"]];
+    vc.photoURL = url;
+}
+
+-(void)setUpNavigationController{
+    self.navigationItem.title = @"Posters";
+    self.navigationController.navigationBar.prefersLargeTitles = YES;
+    self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAutomatic;
 }
 
 -(void)getMoviesNowPlaying{
@@ -73,4 +93,28 @@
     return self.movies.count;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    selectedIndexPath = indexPath;
+    [self performSegueWithIdentifier:@"ShowPosterPageView" sender:self];
+}
+//MARK:- Zoom Animator Delegate
+- (nonnull UIImageView *)refereneImageViewFor:(nonnull ZoomAnimator *)zoomAnimator {
+    PosterCollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:selectedIndexPath];
+    return cell.posterImageView;
+}
+
+- (nonnull CGRect *)refereneImageViewFrameInTransitioningViewFor:(nonnull ZoomAnimator *)zoomAnimator {
+    PosterCollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:selectedIndexPath];
+    CGRect rect = [self.collectionView convertRect:cell.frame toView:self.view];
+    return &rect;
+    
+}
+
+- (void)transitionDidEndWith:(nonnull ZoomAnimator *)zoomAnimator {
+    
+}
+
+- (void)transitionWillStartWith:(nonnull ZoomAnimator *)zoomAnimator {
+    
+}
 @end

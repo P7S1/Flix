@@ -15,7 +15,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic, strong) NSArray *movies;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @end
 
@@ -48,7 +47,6 @@
 }
 -(void)getMoviesNowPlaying{
     [MovieHelper getMoviesNowPlaying:^(NSArray *movies, bool status) {
-        [self.activityIndicator stopAnimating];
         if (status){
             self.movies = movies;
             [self.tableView reloadData];

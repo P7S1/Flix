@@ -9,6 +9,23 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Posters-->
+        <scene sceneID="bRk-6M-siW">
+            <objects>
+                <navigationController id="P3e-Tu-D5V" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Posters" image="projector_tabbar_item" selectedImage="projector_tabbar_item" id="3ka-fB-PDZ"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GGd-CJ-wqk">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="rYC-qJ-SoW" kind="relationship" relationship="rootViewController" id="TwD-tB-MEJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KeU-f9-N2u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2038" y="719"/>
+        </scene>
         <!--Now Playing-->
         <scene sceneID="yOf-XI-Rl7">
             <objects>
@@ -62,13 +79,48 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Now Playing" image="now_playing_tabbar_item" id="KwF-iF-mwI"/>
+                    <navigationItem key="navigationItem" id="pOf-6d-jKY"/>
                     <connections>
                         <outlet property="collectionView" destination="YRz-aS-OdB" id="QJ4-mE-iTi"/>
+                        <segue destination="2DF-E5-35t" kind="show" identifier="ShowPosterPageView" id="1d5-7a-BkS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yUD-lT-dK7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1187" y="682"/>
+            <point key="canvasLocation" x="-1125" y="779"/>
+        </scene>
+        <!--Large Poster View Controller-->
+        <scene sceneID="0ra-kL-Hb1">
+            <objects>
+                <viewController storyboardIdentifier="LargePosterViewController" id="2DF-E5-35t" customClass="LargePosterViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EZy-2j-aIF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n64-2T-o2S">
+                                <rect key="frame" x="0.0" y="172" width="414" height="552"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="n64-2T-o2S" secondAttribute="height" multiplier="3:4" id="6V5-Mp-3x6"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="r6E-hI-bZc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="n64-2T-o2S" firstAttribute="centerY" secondItem="EZy-2j-aIF" secondAttribute="centerY" id="2fe-TX-2Ww"/>
+                            <constraint firstItem="n64-2T-o2S" firstAttribute="leading" secondItem="r6E-hI-bZc" secondAttribute="leading" id="GAq-Ox-kQ2"/>
+                            <constraint firstItem="r6E-hI-bZc" firstAttribute="trailing" secondItem="n64-2T-o2S" secondAttribute="trailing" id="L7z-PB-eZF"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="pHY-pP-sEc"/>
+                    <connections>
+                        <outlet property="imageView" destination="n64-2T-o2S" id="WoP-YF-DPH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fwh-vX-HKE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="21.739130434782609" y="743.97321428571422"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="5Io-S4-QcQ">
@@ -80,19 +132,19 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="rYC-qJ-SoW" kind="relationship" relationship="viewControllers" id="tmb-N0-h5Z"/>
                         <segue destination="vKn-9F-ATz" kind="relationship" relationship="viewControllers" id="EGV-wx-FYm"/>
+                        <segue destination="P3e-Tu-D5V" kind="relationship" relationship="viewControllers" id="TgR-Xk-4c0"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dzz-BZ-y7n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1655" y="93"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Now Playing-->
         <scene sceneID="f3A-sb-Mj5">
             <objects>
                 <navigationController id="vKn-9F-ATz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" selectedImage="projector_tabbar_item" systemItem="featured" id="1cy-qO-BEV"/>
+                    <tabBarItem key="tabBarItem" title="Now Playing" image="now_playing_tabbar_item" selectedImage="now_playing_tabbar_item" id="1cy-qO-BEV"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="e9p-Ud-5jH">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
