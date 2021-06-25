@@ -29,4 +29,5 @@
     [self.movieImageView setImageWithURL:posterURL];
 }
 
+
 @end

@@ -56,7 +56,6 @@
     NSString* urlString = [[urlString1 stringByAppendingString:movieId] stringByAppendingString:urlString2];
     NSURL *url = [NSURL URLWithString:urlString];
     [MovieHelper getMoivies:url completionHandler:^(NSArray<NSDictionary *> *movie, bool status) {
-        
             completion(movie,status);
     }];
 }
@@ -64,9 +63,15 @@
 //MARK:- GET NSURL FROM DICTIONARY
 + (NSURL *)getMovieURLFromPath:(NSString *)posterURLString{
     NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
-    NSString *fullPosterURLString = [baseURLString stringByAppendingString:posterURLString];
-    NSURL *posterURL = [[NSURL alloc]initWithString:fullPosterURLString];
-    return posterURL;
+    if (posterURLString == nil){
+        return [[NSURL alloc]init];
+    }
+    if(![posterURLString isEqual:[NSNull null]]) {
+        NSString *fullPosterURLString = [baseURLString stringByAppendingString:posterURLString];
+        NSURL *posterURL = [[NSURL alloc]initWithString:fullPosterURLString];
+        return posterURL;
+    }
+    return [[NSURL alloc]initWithString: @""];
 }
 
 @end

@@ -30,6 +30,11 @@
     [self getMoviesNowPlaying];
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self.tabBarController.tabBar setHidden:NO];
+}
+
 //MARK:- View Setup and control functions
 -(void)configureRefreshControl{
     self.refreshControl = [[UIRefreshControl alloc]init];

@@ -19,7 +19,7 @@
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic, strong) UIActivityIndicatorView* activityIndicator;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
-@property (nonatomic, nullable) NSNumber *movieId;
+@property (nonatomic) NSNumber * _Nullable movieId;
 @end
 
 @implementation DetailViewController
@@ -30,7 +30,9 @@
     [self setUpViewFromMovie];
     [self setUpCollectionView];
     [self getSimilarMovies];
+    [self.tabBarController.tabBar setHidden:YES];
     [self setUpBlurView];
+    [self setUpWatchTrailerButton];
 }
 
 -(void)setUpBlurView{
@@ -49,6 +51,29 @@
         self.view.backgroundColor = [UIColor blackColor];
     }
 }
+
+-(void)setUpWatchTrailerButton{
+    UIButton* watchTrailerButton = [[UIButton alloc]init];
+    watchTrailerButton.translatesAutoresizingMaskIntoConstraints = false;
+    
+    [self.view addSubview:watchTrailerButton];
+    [self.view bringSubviewToFront:watchTrailerButton];
+    [NSLayoutConstraint activateConstraints:@[
+        [watchTrailerButton.heightAnchor constraintEqualToConstant:50],
+        [watchTrailerButton.leftAnchor constraintEqualToAnchor:self.view.leftAnchor constant:16],
+        [watchTrailerButton.rightAnchor constraintEqualToAnchor:self.view.rightAnchor constant:-16],
+        [watchTrailerButton.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor constant:-16]
+    ]];
+    watchTrailerButton.layer.cornerRadius = 25;
+    [watchTrailerButton setTitle:@"Watch Trailer" forState:UIControlStateNormal];
+    watchTrailerButton.backgroundColor = UIColor.systemPinkColor;
+    [watchTrailerButton addTarget:self action:@selector(watchTrailerButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+}
+
+-(void)watchTrailerButtonPressed{
+    
+}
+
 -(void)configureRefreshControl{
     self.refreshControl = [[UIRefreshControl alloc]init];
     [self.collectionView addSubview:self.refreshControl];
