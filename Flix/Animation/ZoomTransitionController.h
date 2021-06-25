@@ -10,7 +10,7 @@
 
 @protocol ZoomAnimatorDelegate;
 
-@interface ZoomTransitionController : NSObject
+@interface ZoomTransitionController : NSObject<UIViewControllerTransitioningDelegate>
 
 @property (nonatomic, strong) ZoomAnimator* _Nullable animator;
 @property (nonatomic, strong) ZoomDismissalInteractionController* _Nullable interactionController;

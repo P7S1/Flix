@@ -33,7 +33,7 @@ NSIndexPath *selectedIndexPath;
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
         LargePosterViewController *vc = segue.destinationViewController;
-    self.navigationController.delegate = vc.transitionController;
+   // self.navigationController.delegate = vc.transitionController;
         vc.transitionController.fromDelegate = self;
         vc.transitionController.toDelegate = vc;
         NSURL *url = [MovieHelper getMovieURLFromPath:self.movies[selectedIndexPath.row][@"poster_path"]];
@@ -49,6 +49,7 @@ NSIndexPath *selectedIndexPath;
 -(void)getMoviesNowPlaying{
     [MovieHelper getMoviesNowPlaying:^(NSArray *movies, bool status) {
         if (status){
+            
             self.movies = movies;
             [self.collectionView reloadData];
             [SVProgressHUD dismiss];

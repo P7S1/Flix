@@ -16,6 +16,7 @@
 		DF2C46BA26853A3400A9D3AC /* LargePosterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF2C46B926853A3400A9D3AC /* LargePosterViewController.m */; };
 		DF2C46BD26853D5900A9D3AC /* ZoomAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = DF2C46BC26853D5900A9D3AC /* ZoomAnimator.m */; };
 		DF5BA14A2684B11E00747910 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5BA1492684B11E00747910 /* DetailViewController.m */; };
+		DF6EB6C42686459A0086C418 /* SimilarPosterCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6EB6C32686459A0086C418 /* SimilarPosterCollectionViewCell.m */; };
 		DF755D5D26838F8400E0E581 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DF755D5C26838F8400E0E581 /* AppDelegate.m */; };
 		DF755D6026838F8400E0E581 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DF755D5F26838F8400E0E581 /* SceneDelegate.m */; };
 		DF755D6326838F8400E0E581 /* MoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF755D6226838F8400E0E581 /* MoviesViewController.m */; };
@@ -70,6 +71,8 @@
 		DF2C46BF26853DC600A9D3AC /* ZoomAnimator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZoomAnimator.h; sourceTree = "<group>"; };
 		DF5BA1482684B11E00747910 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		DF5BA1492684B11E00747910 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		DF6EB6C22686459A0086C418 /* SimilarPosterCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimilarPosterCollectionViewCell.h; sourceTree = "<group>"; };
+		DF6EB6C32686459A0086C418 /* SimilarPosterCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimilarPosterCollectionViewCell.m; sourceTree = "<group>"; };
 		DF755D5826838F8400E0E581 /* Flix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF755D5B26838F8400E0E581 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DF755D5C26838F8400E0E581 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -171,6 +174,8 @@
 				DF755D912683C03A00E0E581 /* MovieTableViewCell.m */,
 				DF2C46B226851C1D00A9D3AC /* PosterCollectionViewCell.h */,
 				DF2C46B326851C1D00A9D3AC /* PosterCollectionViewCell.m */,
+				DF6EB6C22686459A0086C418 /* SimilarPosterCollectionViewCell.h */,
+				DF6EB6C32686459A0086C418 /* SimilarPosterCollectionViewCell.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -494,6 +499,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFE1EF842683C90D00D1BF64 /* MovieHelper.m in Sources */,
+				DF6EB6C42686459A0086C418 /* SimilarPosterCollectionViewCell.m in Sources */,
 				DF13ABCE2685FE3900A5E946 /* ZoomTransitionController.m in Sources */,
 				DF755D6326838F8400E0E581 /* MoviesViewController.m in Sources */,
 				DF755D5D26838F8400E0E581 /* AppDelegate.m in Sources */,

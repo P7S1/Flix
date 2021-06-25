@@ -14,12 +14,8 @@
  
  -I tried to make a MovieHelper class to handle this logic, but for some reason Xcode didn't recognize "Movie" as an object, so I couldn't use it in the completion handler.
  */
-//MARK:- Get Moves That Are Now Playing
-+ (void) getMoviesNowPlaying: (getMoviesBlock)completion{
-    //Get's the movies that are now playing
-    
-    NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"];
-    
+
++(void) getMoivies: (NSURL*)url completionHandler: (getMoviesBlock)completion{
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
     
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
@@ -33,10 +29,36 @@
            }
            else {
                NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-               completion(dataDictionary[@"results"], YES);
+               if(dataDictionary[@"results"] == nil){
+                   
+                   completion([[NSArray alloc]init], YES);
+               }else{
+                   completion(dataDictionary[@"results"], YES);
+               }
            }
        }];
     [task resume];
+}
+//MARK:- Get Moves That Are Now Playing
++ (void) getMoviesNowPlaying: (getMoviesBlock)completion{
+    //Get's the movies that are now playing
+    NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"];
+    [MovieHelper getMoivies:url completionHandler:^(NSArray<NSDictionary *> *movie, bool status) {
+            completion(movie,status);
+    }];
+}
+
+//MARK:- Get Similar Movies
++ (void) getSimilarMovies: (NSString*)movieId completionHandler: (getMoviesBlock)completion{
+    //Get's the movies that are now playing
+    NSString* urlString1 = @"https://api.themoviedb.org/3/movie/";
+    NSString* urlString2 = @"/similar?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
+    NSString* urlString = [[urlString1 stringByAppendingString:movieId] stringByAppendingString:urlString2];
+    NSURL *url = [NSURL URLWithString:urlString];
+    [MovieHelper getMoivies:url completionHandler:^(NSArray<NSDictionary *> *movie, bool status) {
+        
+            completion(movie,status);
+    }];
 }
 
 //MARK:- GET NSURL FROM DICTIONARY
