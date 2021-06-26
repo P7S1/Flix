@@ -10,9 +10,12 @@
 //Define a block as a custom type
 typedef void(^getMoviesBlock)(NSArray<NSDictionary*>* movie, bool status);
 
+typedef void(^getMovieTrailerBlock)(NSString* youtubeTrailerId, bool status);
+
 //Implement the block
 + (void) getMoviesNowPlaying: (getMoviesBlock)completion;
 + (NSURL*) getMovieURLFromPath: (NSString*)movie;
 +(void) getMoivies: (NSURL*)url completionHandler: (getMoviesBlock)completion;
 + (void) getSimilarMovies: (NSString*)movieId completionHandler: (getMoviesBlock)completion;
++ (void) getMovieTrailer: (NSString*) movieId completionHandler: (getMovieTrailerBlock)completion;
 @end

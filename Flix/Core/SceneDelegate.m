@@ -16,6 +16,7 @@
 
 - (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions {
     UIApplication.sharedApplication.delegate.self.window = self.window;
+    self.window.tintColor = UIColor.systemPinkColor;
 }
 
 

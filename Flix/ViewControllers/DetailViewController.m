@@ -10,15 +10,22 @@
 #import "MovieHelper.h"
 #import "SimilarPosterCollectionViewCell.h"
 #import "SVProgressHUD.h"
+#import "YTPlayerView.h"
 @interface DetailViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UIImageView *backdropImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *movieImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailLabel;
+
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (nonatomic, strong) NSArray *movies;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic, strong) UIActivityIndicatorView* activityIndicator;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
+@property (weak, nonatomic) IBOutlet YTPlayerView *playerView;
+
 @property (nonatomic) NSNumber * _Nullable movieId;
 @end
 
@@ -32,7 +39,9 @@
     [self getSimilarMovies];
     [self.tabBarController.tabBar setHidden:YES];
     [self setUpBlurView];
-    [self setUpWatchTrailerButton];
+    //[self setUpWatchTrailerButton];
+    [self.playerView setHidden:YES];
+    [self startMovieTrailer];
 }
 
 -(void)setUpBlurView{
@@ -67,11 +76,21 @@
     watchTrailerButton.layer.cornerRadius = 25;
     [watchTrailerButton setTitle:@"Watch Trailer" forState:UIControlStateNormal];
     watchTrailerButton.backgroundColor = UIColor.systemPinkColor;
-    [watchTrailerButton addTarget:self action:@selector(watchTrailerButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    [watchTrailerButton addTarget:self action:@selector(startMovieTrailer) forControlEvents:UIControlEventTouchUpInside];
 }
 
--(void)watchTrailerButtonPressed{
-    
+-(void)startMovieTrailer{
+    NSNumber* movieId = self.movie[@"id"];
+    [MovieHelper getMovieTrailer:movieId.stringValue completionHandler:^(NSString *youtubeTrailerId, bool status) {
+        if (status){
+            [self.playerView setHidden:NO];
+            NSDictionary *playerVars = @{
+              @"playsinline" : @1,
+            };
+            [self.playerView loadWithVideoId:youtubeTrailerId playerVars:playerVars];
+            [self.playerView playVideo];
+        }
+    }];
 }
 
 -(void)configureRefreshControl{
@@ -101,7 +120,7 @@
     NSURL *backdropURL = [MovieHelper getMovieURLFromPath:self.movie[@"backdrop_path"]];
     [self.backdropImageView setImageWithURL: backdropURL];
     //self.tabBarController 
-    [self.backgroundImageView setImageWithURL:backdropURL];
+    [self.backgroundImageView setImageWithURL:movieURL];
     [self.movieImageView layoutIfNeeded];
     self.movieImageView.clipsToBounds = true;
     self.movieImageView.layer.masksToBounds = true;

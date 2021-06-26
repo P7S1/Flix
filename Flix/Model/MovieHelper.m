@@ -74,4 +74,43 @@
     return [[NSURL alloc]initWithString: @""];
 }
 
+//MARK:- Get vvideo
++ (void) getMovieTrailer: (NSString*) movieId completionHandler: (getMovieTrailerBlock)completion{
+    NSString* urlString1 = @"https://api.themoviedb.org/3/movie/";
+    NSString* urlString2 = @"/videos?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
+    NSString* urlString = [[urlString1 stringByAppendingString:movieId] stringByAppendingString:urlString2];
+    
+    NSURL* url = [[NSURL alloc]initWithString:urlString];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
+    
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
+    
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+           if (error != nil) {
+               NSLog(@"%@", [error localizedDescription]);
+               //If the network task fails, it sends false in the completion handler
+               completion(@"", NO);
+           }
+           else {
+               NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+               if(dataDictionary[@"results"] == nil){
+                   completion(@"", NO);
+               }else{
+                   NSArray<NSDictionary *>* results = dataDictionary[@"results"] ;
+                   bool foundMatch = false;
+                   for (NSDictionary* dictionary in results){
+                       if([dictionary[@"site"]  isEqual: @"YouTube"]){
+                           completion(dictionary[@"key"],YES);
+                           foundMatch = true;
+                       }
+                   }
+                   if (!foundMatch){
+                       completion(@"", NO);
+                   }
+               }
+           }
+       }];
+    [task resume];
+}
 @end
