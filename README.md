@@ -31,10 +31,13 @@ The following **optional** features are implemented:
 - [x] Similar Movies
 - [x] Video Trailer for Movies
 
-The following **additional** features are implemented:
+The following **additional but I forgot to mention** features are implemented:
 
-- [ ] List Categories that could be picked
-
+- [x] Video Trailer shows inline using Youtube's video API
+- [x] UINavigationBar Large titles appears/disappears in the home page
+- [x] Blurred background in the Movies detailed page with the movie's poster
+- [x] When you tap a similar movie, it brings up that movie's details page
+  
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
 1. Networking and API calls
